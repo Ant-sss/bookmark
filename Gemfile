@@ -57,11 +57,10 @@ gem 'pry-rails'
 gem 'ransack'
 gem 'active_hash'
 gem 'mini_magick'
-gem 'image_processing', '~>1.2'
+gem 'image_processing', '~> 1.2'
 gem 'mini_magick'
 gem 'ancestry'
 gem 'font-awesome-rails'
-gem 'aws-sdk-s3', require: false
 gem 'rails-i18n'
 group :production do
   gem 'rails_12factor'
