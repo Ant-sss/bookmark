@@ -1,34 +1,38 @@
-<div class="new">
-NEW
+<%= render 'shared/header' %>
 
+<div class="items">
+<div class="new">
 <%= form_with model: @item, url: items_path, class:"item-new", local: true do |f| %>
   <div class="item-input">
     <b>タイトル</b>
-    <%= f.text_field :title, class:"field-input" %>
   </div>
+    <%= f.text_field :title, class:"field-input" %>
   <div class="item-input">
     <b>画像</b>
-    <%= f.label :image, for:"item-image", class:"item-image-label" do %>
-      選択する
-      <%= f.file_field :image, class:"item-image", id:"item-image" %>
-    <% end %>
   </div>
+    <%= f.label :image, for:"image-new", class:"item-image-label" do %>
+      選択する
+      <%= f.file_field :image, class:"image-new", id:"image-new", style:"display: none;" %>
+    <% end %>
   <div class="item-input">
     <b>著者（またはyoutube）</b>
-    <%= f.text_field :author, class:"field-input" %>
   </div>
+    <%= f.text_field :author, class:"field-input" %>
   <div class="item-input">
     <b>メモ</b>
-    <%= f.text_area :text, class:"area-input" %>
   </div>
+    <%= f.text_area :text, class:"area-input" %>
   <div class="item-input">
     <b>カテゴリー</b>
-    <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"item-select"}) %>
   </div>
+    <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"item-select"}) %>
   <div class="item-input">
     <b>タグ<b>
-    <%= f.text_field :name, class:"field-input" %>
   </div>
-    <%= f.submit "保存", class:"link" %>
+    <%= f.text_field :name, class:"field-input" %>
+  <div>
+    <b><%= f.submit "保存", class:"new-link" %></b>
+  </div>
   <% end %>
+</div>
 </div>

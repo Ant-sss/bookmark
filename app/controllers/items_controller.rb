@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.all.order(created_at: :desc).last(9)
+    @items = Item.all.order(created_at: :desc).last(6)
+    @item_count = Item.count
   end
 
   def new
@@ -21,7 +22,8 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:items_tag).permit(:title, :image, :author, :text, :category_id, :name)
-  end
+    params.require(:items_tag).permit(:title, :image, :author, :text, :category_id)
+    params.require(:items_tag).permit(:name).split(nil)
+    end
 
 end

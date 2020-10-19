@@ -1,0 +1,13 @@
+<div class="wrapper">
+  <div class="wrapper-inner">
+  <%= link_to root_path do %>
+    <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+  <% end %>
+  <b>total：<%= Item.count %></b>
+  <%= link_to  new_item_path do %>
+    <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+  <% end %>
+    <i class="fa fa-list-ul fa-2x" aria-hidden="true"></i>
+    <i class="fa fa-th fa-2x" aria-hidden="true"></i>
+  </div>
+</div>
