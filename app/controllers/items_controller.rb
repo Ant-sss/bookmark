@@ -27,10 +27,6 @@ class ItemsController < ApplicationController
 
   private
 
-
-
-  private
-
   def item_params
     params.require(:items_tag).permit(:title, :image, :author, :text, :category_id)
     params.require(:items_tag).permit(:name).split(nil)
