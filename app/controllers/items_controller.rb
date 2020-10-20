@@ -7,6 +7,10 @@ class ItemsController < ApplicationController
     @item_count = Item.count
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+
   def new
     @item = ItemsTag.new
   end

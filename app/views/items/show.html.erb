@@ -1,0 +1,39 @@
+<%= render 'shared/header' %>
+
+<div class="items">
+<div class="item-show">
+  <div class="show-edit-link">
+    <%= link_to "編集", edit_item_path, class:"edit-link" %>
+    <%= link_to "削除", item_path, mothod: :destroy, class:"edit-link" %>
+  </div>
+  <div class="item-top">
+    <div class="item-top-image">
+      <%= image_tag @item.image, class:"show-image"%>
+    </div>
+    <div class="item-top-right">
+      <div class="item-info">
+        <b>タイトル</b>
+      </div>
+      <%= @item.title %>
+      <div class="item-info">
+        <b>著者</b>
+      </div>
+      <%= @item.author %>
+      <div class="item-info">
+        <b>カテゴリー</b>
+      </div>
+      <%= @item.category.name %>
+      <div class="item-info">
+        <b>登録日</b>
+      </div>
+      <%= @item.created_at.strftime("%Y.%m.%d") %>
+    </div>
+  </div>
+  <div class="item-bottom">
+    <div class="item-memo">
+      <b>メモ</b>
+    </div>
+    <%= simple_format(@item.text) %>
+  </div>
+</div>
+</div>
