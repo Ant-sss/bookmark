@@ -16,12 +16,35 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = ItemsTag.new(item_params)
+    @item = ItemsTag.new(itemtag_params)
     if @item.valid?
       @item.save
       redirect_to root_path
     else
       render "new"
+    end
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to item_path
+    else 
+      render "edit"
+    end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    binding.pry
+    if @item.destroy
+      redirect_to root_path
+    else
+      render "show"
     end
   end
 
@@ -31,10 +54,14 @@ class ItemsController < ApplicationController
 
   private
 
-  def item_params
+  def itemtag_params
     params.require(:items_tag).permit(:title, :image, :author, :text, :category_id)
     params.require(:items_tag).permit(:name).split(nil)
-    end
+  end
+
+  def item_params
+    params.require(:item).permit(:title, :image, :author, :text, :category_id)
+  end
 
   def search_item
     @p = Item.ransack(params[:q])
