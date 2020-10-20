@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function(){
+
   const pullDownButton = document.getElementById("lists")
   const pullDownParents = document.getElementById("pull-down")
-  
+
   pullDownButton.addEventListener('mouseover', function(){
     this.setAttribute("style", "color:#4682B4;")
   })
@@ -17,4 +18,4 @@ document.addEventListener('DOMContentLoaded', function(){
       pullDownParents.setAttribute("style", "display:block;")
     }    
   });
-})
+}) 
