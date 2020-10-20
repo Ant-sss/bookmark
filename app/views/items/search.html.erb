@@ -1,0 +1,18 @@
+<%= render 'shared/header' %>
+
+<div class="items">
+  <div class="items-inner">
+    <ul class="item-list">
+      <% @results.each do |result| %>
+        <li>
+          <%= link_to item_path(result.id) do %>
+            <%= image_tag result.image, class:"item-image" %>
+            <div class="item-title">
+              <%= result.title %>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

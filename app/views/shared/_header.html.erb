@@ -1,13 +1,24 @@
 <div class="wrapper">
   <div class="wrapper-inner">
-  <%= link_to root_path do %>
-    <i class="fa fa-home fa-2x" aria-hidden="true"></i>
-  <% end %>
-  <b>total：<%= Item.count %></b>
-  <%= link_to  new_item_path do %>
-    <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
-  <% end %>
-    <i class="fa fa-list-ul fa-2x" aria-hidden="true"></i>
-    <i class="fa fa-th fa-2x" aria-hidden="true"></i>
+    <div>
+      <%= link_to root_path do %>
+        <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+      <% end %>
+      <b>total：<%= Item.count %></b>
+    </div>
+    <div>
+      <%= link_to  new_item_path do %>
+        <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+      <% end %>
+      <i class="fa fa-list-ul fa-2x" aria-hidden="true" id="lists"></i>
+        <ul class="category hidden" id="pull-down">
+          <% @category.each do |category| %>
+            <%= link_to search_items_path(@p, :'q[category_id_eq' => "#{category.id}"), class:"category-list" do %>
+              <li><%= category.name %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      <i class="fa fa-th fa-2x" aria-hidden="true"></i>
+    </div>
   </div>
 </div>

@@ -21,12 +21,12 @@
 }
 
 .item-list li {
-  width: 310px;
+  width: 320px;
   height: 460px;
 }
 
 .item-image {
-  width: 35vh;
-  height: 46vh;
+  width: 33vh;
+  height: 45vh;
 }
 
