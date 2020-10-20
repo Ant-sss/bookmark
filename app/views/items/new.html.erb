@@ -1,0 +1,38 @@
+<%= render 'shared/header' %>
+
+<div class="items">
+<div class="new">
+<%= form_with model: @item, url: items_path, class:"item-new", local: true do |f| %>
+  <div class="item-input">
+    <b>タイトル</b>
+  </div>
+    <%= f.text_field :title, class:"field-input" %>
+  <div class="item-input">
+    <b>画像</b>
+  </div>
+    <%= f.label :image, for:"image-new", class:"item-image-label" do %>
+      選択する
+      <%= f.file_field :image, class:"image-new", id:"image-new", style:"display: none;" %>
+    <% end %>
+  <div class="item-input">
+    <b>著者（またはyoutube）</b>
+  </div>
+    <%= f.text_field :author, class:"field-input" %>
+  <div class="item-input">
+    <b>メモ</b>
+  </div>
+    <%= f.text_area :text, class:"area-input" %>
+  <div class="item-input">
+    <b>カテゴリー</b>
+  </div>
+    <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"item-select"}) %>
+  <div class="item-input">
+    <b>タグ<b>
+  </div>
+    <%= f.text_field :name, class:"field-input" %>
+  <div>
+    <b><%= f.submit "保存", class:"new-link" %></b>
+  </div>
+  <% end %>
+</div>
+</div>
