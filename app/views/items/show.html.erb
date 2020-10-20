@@ -4,7 +4,7 @@
 <div class="item-show">
   <div class="show-edit-link">
     <%= link_to "編集", edit_item_path, class:"edit-link" %>
-    <%= link_to "削除", item_path, mothod: :destroy, class:"edit-link" %>
+    <%= link_to "削除", item_path(@item), method: :delete, class:"edit-link" %>
   </div>
   <div class="item-top">
     <div class="item-top-image">
